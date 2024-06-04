@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+jieba
+qianfan
+redis
+loguru
+requests
+protobuf
+paddlepaddle
+paddlenlp
+starlette
+SQLAlchemy
+pymysql
+PyYAML
+pydantic
+passlib
+python-jose

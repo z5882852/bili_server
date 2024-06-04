@@ -1,0 +1,80 @@
+# FastAPI配置
+fastapi:
+  # FastAPI服务器地址
+  host: 127.0.0.1
+  # FastAPI服务器端口
+  port: 8089
+  # 配置允许跨域请求
+  allow_origins:
+    - "*"
+  # 地址前缀
+  prefix: /api/v1
+
+# 鉴权配置
+secret:
+  # 密钥
+  secret_key: "a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6"
+  # 加密算法
+  algorithm: "HS256"
+  # token过期时间(分钟)
+  expire_time: 1440
+
+# Redis数据库配置(用于储存弹幕信息)
+redis:
+  # Redis服务器地址
+  host: localhost
+  # Redis服务器端口
+  port: 6379
+  # Redis服务器密码
+  password: ""
+  # Redis数据库
+  database: 0
+  # Redis连接超时时间
+  timeout: 5
+  # 最长缓存时间
+  expire: 3600
+
+# mysql数据库配置
+mysql:
+  # Mysql服务器地址
+  host: localhost
+  # Mysql服务器端口
+  port: 3306
+  # Mysql数据库密码
+  username: root
+  # Mysql服务器密码
+  password: 123456
+  # 数据库名
+  database: bili
+
+# 日志配置
+log:
+  # 显示日志
+  show: true
+  # 保存日志
+  save: false
+  # DEBUG模式
+  debug: true
+  # 日志文件夹路径
+  dir: logs
+
+# 千帆应用配置
+qianfan:
+  # 模型名称（id）
+  model: "ERNIE-4.0-8K-0104"
+  # 预设提示词
+  prompt: "给定一则视频的多条弹幕内容: [weight] [content]，请根据弹幕内容，为该视频作者提出视频的优化建议。请直接给出优化建议，不需要开头和总结。"
+  # 模型参数
+  temperature: 0.6
+  top_p: 0.6
+  # 千帆应用access_key和secret_key（必填）
+  access_key: ""
+  secret_key: ""
+
+# 飞桨应用配置
+paddle:
+  # 情感分析模型类型
+  model: "sentiment_analysis"
+  # 模型下载路径
+  model_path: "./data"
+  
