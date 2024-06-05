@@ -57,7 +57,8 @@ def register(user: UserCreate, db: Session = Depends(get_db), request: Request =
             status_code=status.HTTP_200_OK,
             content={"code": 400, "message": "该用户已经注册"}
         )
-    return create_user(db=db, user=user, ip_address=request.client.host)
+    user_info = create_user(db=db, user=user, ip_address=request.client.host)
+    return {"code": 200, "message": "注册成功", "data": user_info}
 
 
 @router.post("/login")

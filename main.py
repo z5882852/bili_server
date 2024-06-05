@@ -27,6 +27,6 @@ if __name__ == '__main__':
         "main:app",
         host=API_CONFIG.get("host", "127.0.0.1"),
         port=API_CONFIG.get("port", 8000),
-        reload=True,
-        workers=1
+        # reload=True,
+        # workers=1
     )

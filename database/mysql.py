@@ -4,7 +4,7 @@ from sqlalchemy.orm import sessionmaker
 from log import logger
 from utils import config
 
-MYSQL_CONFIG = config.get("config", {})
+MYSQL_CONFIG = config.get("mysql", {})
 
 SQLALCHEMY_DATABASE_URL = "mysql+pymysql://{}:{}@{}:{}/{}".format(
     MYSQL_CONFIG.get("username", "root"),

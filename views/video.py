@@ -40,7 +40,7 @@ async def video_info(
         return {"code": 200, "msg": "success", "data": info}
     except Exception as e:
         logger.error(f"获取视频信息失败，错误信息：{e}")
-        return {"code": 500, "msg": "获取视频信息失败"}
+        return {"code": 500, "message": "获取视频信息失败"}
 
 
 @router.get("/video/user/info")
@@ -55,14 +55,14 @@ async def video_info(
         ), current_user: schemas.UserResponse = Depends(get_current_user)):
     """获取获取作者信息"""
     if not mid:
-        return {"code": 400, "msg": "参数为空"}
+        return {"code": 400, "message": "参数为空"}
     try:
         logger.debug(f"获取用户信息，mid: {mid}")
         info = get_user_info(mid)
-        return {"code": 200, "msg": "success", "data": info}
+        return {"code": 200, "message": "success", "data": info}
     except Exception as e:
         logger.error(f"获取用户信息失败，错误信息：{e}")
-        return {"code": 500, "msg": "获取用户信息失败"}
+        return {"code": 500, "message": "获取用户信息失败"}
 
 
 @router.get("/video/dm")
@@ -83,10 +83,10 @@ async def video_dm(
     try:
         logger.debug(f"获取视频弹幕，cid: {cid}, aid: {aid}")
         info = get_danmu(cid, aid)
-        return {"code": 200, "msg": "success", "data": info}
+        return {"code": 200, "message": "success", "data": info}
     except Exception as e:
         logger.error(f"获取视频弹幕失败，错误信息：{e}")
-        return {"code": 500, "msg": "获取视频弹幕失败"}
+        return {"code": 500, "message": "获取视频弹幕失败"}
 
 
 @router.get("/video/dm/analyse")
@@ -106,15 +106,15 @@ async def video_dm_processed(
     """获取处理后的弹幕信息"""
     try:
         data = video_controller.handle_danmu(cid, aid)
-        return {"code": 200, "msg": "success", "data": data}
+        return {"code": 200, "message": "success", "data": data}
     except Exception as e:
         logger.error(f"分析视频弹幕失败，错误信息：{e}")
-        return {"code": 500, "msg": "分析视频弹幕失败"}
+        return {"code": 500, "message": "分析视频弹幕失败"}
 
 
 @router.get("/video/comments")
 async def video_comments():
-    return {"code": 200, "msg": "success"}
+    return {"code": 200, "message": "success"}
 
 
 # 视频优化方案
