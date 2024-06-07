@@ -42,7 +42,7 @@ def get_segment_dm(cid, aid: str = None, idx: int = 1):
         "wts": wts
     })
 
-    resp = session.get(url, params=params)
+    resp = session.get(url, params=params, timeout=3)
     if resp.status_code != 200:
         raise Exception(f"请求失败，状态码：{resp.status_code}")
     data = resp.content

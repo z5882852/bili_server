@@ -18,6 +18,7 @@ pool = redis.ConnectionPool(
 redis = redis.Redis(connection_pool=pool)
 
 try:
+    redis.set("test", "test")
     if redis.get("test") == "test":
         logger.debug("redis连接成功!")
 except Exception as e:

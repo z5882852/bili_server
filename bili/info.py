@@ -9,7 +9,7 @@ def get_info(bv: str = None):
     params = {
         "bvid": bv
     }
-    response = session.get(url, params=params)
+    response = session.get(url, params=params, timeout=3)
     if response.status_code != 200:
         raise Exception(f"请求失败，状态码：{response.status_code}")
     data = response.json()
@@ -42,7 +42,7 @@ def get_user_info(mid: str):
         "w_rid": w_rid,
         "wts": wts
     })
-    response = session.get(url, params=params)
+    response = session.get(url, params=params, timeout=3)
     if response.status_code != 200:
         raise Exception(f"请求失败，状态码：{response.status_code}")
     data = response.json()

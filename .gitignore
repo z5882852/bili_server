@@ -2,6 +2,7 @@
 node_modules
 /dist
 */taskflow
+/__pycache__
 
 config.yml
 demo.*

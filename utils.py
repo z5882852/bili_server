@@ -79,7 +79,7 @@ def get_word_count(text_list: list) -> list[dict]:
 
 
 def download_images(image_url: str) -> str:
-    res = requests.get(image_url)
+    res = requests.get(image_url, timeout=3)
     if res.status_code != 200:
         return ""
     return base64.b64encode(res.content).decode("utf-8")
